@@ -17,6 +17,8 @@
             padding: 0;
         }
     </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 </head>
 <body>
 <div id="map"></div>
@@ -25,45 +27,24 @@
     // prompted by your browser. If you see the error "The Geolocation service
     // failed.", it means you probably did not give permission for the browser to
     // locate you.
-    var map, infoWindow;
-    function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-            center: {lat: -34.397, lng: 150.644},
-            zoom: 6
-        });
-        infoWindow = new google.maps.InfoWindow;
-
-        // Try HTML5 geolocation.
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(function(position) {
-                var pos = {
-                    lat: position.coords.latitude,
-                    lng: position.coords.longitude
-                };
-
-                infoWindow.setPosition(pos);
-                infoWindow.setContent('Location found.');
-                infoWindow.open(map);
-                map.setCenter(pos);
-            }, function() {
-                handleLocationError(true, infoWindow, map.getCenter());
-            });
-        } else {
-            // Browser doesn't support Geolocation
-            handleLocationError(false, infoWindow, map.getCenter());
-        }
-    }
-
-    function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-        infoWindow.setPosition(pos);
-        infoWindow.setContent(browserHasGeolocation ?
-                'Error: The Geolocation service failed.' :
-                'Error: Your browser doesn\'t support geolocation.');
-        infoWindow.open(map);
-    }
+   function test() {
+       $.ajax({
+           url:'https://terminal2.expedia.com/x/packages/2017-10-26/SEA/ORL/2017-10-29/ORL/SEA?regionid=178294&limit=1',
+           beforeSend: function(request) {
+               request.setRequestHeader("key", "4f8ce657-ee06-4527-a8d8-4b207f8f0d62");
+           },
+           complete: function (response) {
+               alert(response);
+               $('#output').html(response.responseText);
+           },
+           error: function (error) {
+               //alert(error)
+               $('#output').html('Bummer: there was an error!');
+           }
+       });
+   }
 </script>
-<script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBK_4hMqe1qQgYlYZhHlpgAHHXVA_wlEVI&callback=initMap">
-</script>
+
+<input type="button" title="sdssdds" onclick="test()" > dsdsdsddssdds</input>
 </body>
 </html>

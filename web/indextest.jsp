@@ -56,9 +56,9 @@
 
         function getData(jsonData, authorizationToken, url) {
             return $.ajax({
-                type : "POST",
+                type : "GET",
                 url : url,
-                data : jsonData,
+                //data : jsonData,
                 beforeSend: function(request) {
                     request.setRequestHeader("key", authorizationToken);
                 },
@@ -76,7 +76,8 @@
         console.log("jsonData" + jsonData);
 
         $(document).ready(function() {
-            getData(jsonData, "4f8ce657-ee06-4527-a8d8-4b207f8f0d62" ,"https://terminal2.expedia.com/x/media/search/criteria?pageSize=10&pageIndex=1").then(function(result) {
+            getData(jsonData, "4f8ce657-ee06-4527-a8d8-4b207f8f0d62" ,"https://terminal2.expedia.com/x/packages/2017-10-26/SEA/ORL/2017-10-29/ORL/SEA?regionid=178294&limit=10")
+                    .then(function(result) {
                 alert("result" + result);
             })
         });

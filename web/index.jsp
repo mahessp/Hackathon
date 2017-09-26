@@ -1,18 +1,11 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: nitishsingla
-  Date: 9/22/17
-  Time: 2:34 PM
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <html><!-- Styles -->
 <!-- Styles -->
 
 <style>
     #map {
-        height: 700px;
-        width: 70%;
+        height: 500px;
+        width: 100%;
     }
 </style>
 <head>
@@ -20,7 +13,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-        * {
+        {
             box-sizing: border-box
         }
 
@@ -746,8 +739,8 @@
                 lat: 19.4326,
                 long: 99.1332,
                 title: "Mexico",
-            regionId: 178285
-        };
+                regionId: 178285
+            };
 
             var dubai = {
                 lat: 25.2048,
@@ -926,10 +919,9 @@
             ];
 
 
-
             // Try HTML5 geolocation.
             if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(function(position) {
+                navigator.geolocation.getCurrentPosition(function (position) {
                     var pos = {
                         lat: position.coords.latitude,
                         lng: position.coords.longitude
@@ -939,7 +931,7 @@
                     infoWindow.setContent('Location found.');
                     infoWindow.open(map);
                     map.setCenter(pos);
-                }, function() {
+                }, function () {
                     handleLocationError(true, infoWindow, map.getCenter());
                 });
             } else {
@@ -975,7 +967,7 @@
                     return function () {
 
                         var html = '<h4>' + locations[i][0] + '</h4>';
-                        html+= '<div> <image href=https://www.expedia.com/lp/destinations/' + locations[i][3] +'width=400px height=400px src='+ response.images[0].fileUrl + ' ></image></div>';
+                        html += '<div> <image href=https://www.expedia.com/lp/destinations/' + locations[i][3] + 'width=400px height=400px src=' + response.images[0].fileUrl + ' ></image></div>';
 
                         html += '<table width="100%"> <tr>';
                         html += ' <td width="50%"><a   target="_blank" href= https://www.expedia.com/lp/destinations/' + locations[i][3] + ' "><strong>Learn More</strong></a></td>';
@@ -990,70 +982,30 @@
 
 
         }
-
-        function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-            infoWindow.setPosition(pos);
-            infoWindow.setContent(browserHasGeolocation ?
-                    'Error: The Geolocation service failed.' :
-                    'Error: Your browser doesn\'t support geolocation.');
-            infoWindow.open(map);
-        }
     </script>
-   <%-- <script>
-        // Note: This example requires that you consent to location sharing when
-        // prompted by your browser. If you see the error "The Geolocation service
-        // failed.", it means you probably did not give permission for the browser to
-        // locate you.
-        var map, infoWindow;
-        function initMap() {
-            map = new google.maps.Map(document.getElementById('map'), {
-                center: {lat: -34.397, lng: 150.644},
-                zoom: 6
-            });
-            infoWindow = new google.maps.InfoWindow;
 
-            // Try HTML5 geolocation.
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(function(position) {
-                    var pos = {
-                        lat: position.coords.latitude,
-                        lng: position.coords.longitude
-                    };
-
-                    infoWindow.setPosition(pos);
-                    infoWindow.setContent('Location found.');
-                    infoWindow.open(map);
-                    map.setCenter(pos);
-                }, function() {
-                    handleLocationError(true, infoWindow, map.getCenter());
-                });
-            } else {
-                // Browser doesn't support Geolocation
-                handleLocationError(false, infoWindow, map.getCenter());
-            }
-        }
-
-        function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-            infoWindow.setPosition(pos);
-            infoWindow.setContent(browserHasGeolocation ?
-                    'Error: The Geolocation service failed.' :
-                    'Error: Your browser doesn\'t support geolocation.');
-            infoWindow.open(map);
-        }
-    </script>--%>
 </head>
 <body>
+<img src="header1.png" height="25%" width="100%">
+<div style="width: 100%">
+    <div id="map" style="margin-left:15%"></div>
+</div>
 
 
-<h3>My Google Maps Demo</h3>
-<div id="map"></div>
 
+</table>
+
+<img src="middle.png" height="35%" width="100%">
 
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBK_4hMqe1qQgYlYZhHlpgAHHXVA_wlEVI&callback=initMap">
 </script>
 
 <div id="result"></div>
+
+
+
+<img src="footer.png" height="100%" width="100%">
 
 </body>
 </html>
