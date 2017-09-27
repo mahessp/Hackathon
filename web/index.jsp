@@ -56,7 +56,7 @@
         });
         function showOverlay(param) {
             $('#overlay, #popup').css('display', 'block');
-            document.getElementById("packageLanding").href = "https://www.google.com";
+            document.getElementById("packageLanding").href = param;
         }
     </script>
 
@@ -282,8 +282,8 @@
                         html += '<div  style= "padding-left: 17px";> <a target="_blank" href=https://www.expedia.com/lp/destinations/' + locations[i][3] + '> <image href=https://www.expedia.com/lp/destinations/' + locations[i][3] + ' width=500px height=400px src=' + locations[i][4] + ' ></image></a></div>';
 
                         html += '<table width="100%"> <tr>';
-                        html += ' <td style="padding: 5px;" width="50%"><a target="_blank" href= https://www.expedia.com/lp/destinations/' + locations[i][3] + '"><strong>Learn More</strong></a></td>';
-                        html += '<td width="50%" align="right"><strong><a id="button" onclick="showOverlay('+locations[i][4]+'))";>See Prices</a></strong></td>';
+                        html += ' <td style="padding: 5px;" width="50%"><a target="_blank" href= https://www.expedia.com/lp/destinations/' + locations[i][3] + '><strong>Learn More</strong></a></td>';
+                        html += '<td width="50%" align="right"><strong><a id="button" onclick="showOverlay(' + locations[i][4] +' )";>See Prices</a></strong></td>';
                         html += '</tr></table>';
 
                         infowindow.setContent(html);
@@ -315,7 +315,7 @@
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBK_4hMqe1qQgYlYZhHlpgAHHXVA_wlEVI&callback=initMap">
 </script>
 <div id="overlay"></div>
-<div id="popup"><a id="packageLanding" target="_blank" href="https://google.com"> <img  src="origin.png" height="200px" width="600px"></a></div>
+<div id="popup"><a id="packageLanding" target="_blank"> <img  src="origin.png" height="200px" width="600px"></a></div>
 <div id="result"></div>
 
 
