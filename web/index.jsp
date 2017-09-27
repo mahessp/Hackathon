@@ -283,7 +283,7 @@
 
                         html += '<table width="100%"> <tr>';
                         html += ' <td style="padding: 5px;" width="50%"><a target="_blank" href= https://www.expedia.com/lp/destinations/' + locations[i][3] + '"><strong>Learn More</strong></a></td>';
-                        html += '<td width="50%" align="right"><strong><a id="button" onclick=showOverlay('+locations[i][4]+');>See Prices</a></strong></td>';
+                        html += '<td width="50%" align="right"><strong><a id="button" onclick="showOverlay('+locations[i][4]+'))";>See Prices</a></strong></td>';
                         html += '</tr></table>';
 
                         infowindow.setContent(html);
