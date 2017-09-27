@@ -4,7 +4,7 @@
 
 <style>
     #map {
-        height: 500px;
+        height: 700px;
         width: 100%;
     }
 </style>
@@ -942,7 +942,7 @@
 
             var london = {lat: 51.5074, lng: 0.1278};
             var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 1,
+                zoom: 3,
                 center: london
             });
             var marker = new google.maps.Marker({
@@ -951,10 +951,10 @@
                 title: "London"
             });
 
-            var infowindow = new google.maps.InfoWindow({});
+            var infowindow = new google.maps.InfoWindow({
+            });
 
             var i;
-
 
             for (i = 0; i < locations.length; i++) {
                 marker = new google.maps.Marker({
@@ -979,7 +979,12 @@
                     }
                 })(marker, i));
             }
+            google.maps.event.addListener(infowindow,'closeclick',function(){
+                var center = map.getCenter();
 
+                google.maps.event.trigger(map, "resize");
+                map.setCenter(center);
+            });
 
         }
     </script>
@@ -987,11 +992,9 @@
 </head>
 <body>
 <img src="header1.png" height="25%" width="100%">
-<div style="width: 100%">
+<div style="width: 70%">
     <div id="map" style="margin-left:15%"></div>
 </div>
-
-
 
 </table>
 
@@ -1002,8 +1005,6 @@
 </script>
 
 <div id="result"></div>
-
-
 
 <img src="footer.png" height="100%" width="100%">
 
